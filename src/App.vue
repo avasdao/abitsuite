@@ -1,13 +1,47 @@
 <template>
-    <DashForge />
+    <div class="app">
+        <SidebarPanel />
+
+        <div class="content ht-100v pd-0">
+            <div class="content-header">
+                <div class="content-search">
+                    <i data-feather="search"></i>
+                    <input type="search" class="form-control" placeholder="Search...">
+                </div>
+
+                <nav class="nav">
+                    <a href="javascript://" class="nav-link"><i data-feather="help-circle"></i></a>
+                    <a href="javascript://" class="nav-link" @click="openWorkspace('dbManager')"><i data-feather="grid"></i></a>
+                    <a href="javascript://" class="nav-link"><i data-feather="align-left"></i></a>
+                </nav>
+            </div>
+
+            <div class="content-body">
+                <router-view></router-view>
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
-import DashForge from './components/DashForge.vue'
+import SidebarPanel from '@/components/Sidebar/MainPanel.vue'
 
 export default {
     components: {
-        DashForge
+        SidebarPanel
+    },
+    data: () => {
+        return {
+            // TODO
+        }
+    },
+    methods: {
+        openWorkspace: function (_workspace) {
+            this.$router.push('/db-manager')
+        },
+    },
+    mounted: function () {
+        console.info('Main application has mounted!')
     },
 }
 </script>
