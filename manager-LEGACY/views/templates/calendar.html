@@ -1,0 +1,71 @@
+<% include ../includes/head %>
+
+<body class="sidebar-push">
+  
+<% include ../includes/nav %>
+
+<% include ../includes/sidebar %>
+
+<div class="container-fluid ">
+      
+<div id="main">
+	<div class="page-header">
+		<h2>Event Calendar</h2>
+	</div>
+	<hr class="margin-none"/>
+
+	<div class="media">
+		<div class="media-body">
+			<!-- Calendar -->
+			<div id='calendar'></div>
+		</div>
+		<div class="media-right clearfix-xs">
+			<div class="width-300">
+				<h4 class="headline text-center">This Month's Summary</h4>
+				<div id="this-month-event-list"></div>
+				<p class="text-center">
+					<a href="#" class="btn btn-orange bold" id="addEvent">Add New Event <i class="fa fa-plus"></i></a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<h4 class="headline">Sample Event Source</h4>
+	<pre><code class="hljs javascript">[{
+  title: <span class="hljs-string">'Meeting with Sam'</span>,
+  description: <span class="hljs-string">'Quick meetup with Sam to review the current progress of the project.'</span>,
+  type: <span class="hljs-string">'meeting'</span>,
+  allday: <span class="hljs-string">'false'</span>,
+  start: <span class="hljs-string">'2015-03-16T16:00:00'</span>,
+  end: <span class="hljs-string">'2015-03-16T18:00:00'</span>
+}]</code></pre>
+
+	<!-- Event Details Sidebar-->
+	<div class="sidebar right-side" id="sidebar-calendar"></div>
+	<!-- // Event Details Sidebar-->
+</div>
+
+
+	  <div class="footer">
+	<a href="index.html" class="brand">
+		<i class="md md-multitrack-audio"></i> Blueprint
+	</a>
+	<ul>
+		<li><a href="#">Contact us</a></li>
+		<li><a href="#">Support</a></li>
+	</ul>
+</div>
+  </div>
+
+
+  <div class="overlay-disabled"></div>
+
+
+  <!-- Plugins -->
+  <script src="../js/plugins.min.js"></script>
+
+  
+  <!-- App Scripts -->
+  <script src="../js/scripts.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,232 @@
+<% include ../includes/head %>
+
+<body class="sidebar-push">
+  
+<% include ../includes/nav %>
+
+<% include ../includes/sidebar %>
+
+<div class="container-fluid ">
+	<div id="main">
+		<div class="page-header">
+			<h1>Customers <a href="javascript://" class="btn btn-primary">Add <i class="fa fa-plus"></i></a></h1>
+		</div>
+
+		<div class="panel panel-shadow">
+			<div class="panel-body">
+				<form class="form-inline filter">
+					<span class="bold text-muted">Filter</span>
+					<div class="form-group">
+						<input type="text" class="form-control" id="" placeholder="Full Name">
+					</div>
+					<div class="form-group">
+						<div class="checkbox checkbox-primary">
+							<input id="checkbox1" type="checkbox" checked>
+							<label for="checkbox1">
+								Student
+							</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="checkbox checkbox-primary">
+							<input id="checkbox2" type="checkbox">
+							<label for="checkbox2">
+								VIP
+							</label>
+						</div>
+					</div>
+					<div class="form-group">
+						<select id="basic" class="selectpicker show-tick form-control" data-live-search="false">
+							<option>Company A</option>
+							<option>Company B</option>
+							<option>Company C</option>
+							<option>Company D</option>
+							<option>Company E</option>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-default-dark  pull-right">Search</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="table-responsive">
+			<table class="table">
+				<thead>
+				<tr class="text-uppercase">
+					<th class="text-center">ID</th>
+					<th>Contact Phone</th>
+					<th class="text-center">Student</th>
+					<th class="text-center">VIP</th>
+					<th class="text-center">Total Spent</th>
+					<th class="text-center">Last Use</th>
+					<th class="text-center">Action</th>
+				</tr>
+				</thead>
+				<tbody id="list-customers">
+<!-- 
+				<tr>
+					<td class="text-muted text-uppercase text-center">06 jan</td>
+					<td><a href="account.html" class="text-regular">Andrew Brain</a>
+						<a href="email.html" class="text-muted"><i class="md md-email"></i></a></td>
+					<td class="text-center">
+							<span class="icon-circle bg-green">
+								<i class="md md-check"></i>
+							</span>
+					</td>
+					<td class="text-center">
+						<i class="md md-clear text-muted"></i>
+					</td>
+					<td>
+						<a href="javascript://">Blue Ltd.</a>
+					</td>
+					<td class="text-center">
+						<i class="md md-clear text-muted"></i>
+					</td>
+					<td class="text-center">
+						<a href="account.html" class="btn btn-xs btn-icon btn-primary"><i class="md md-mode-edit"></i></a>
+						<a href="javascript://" class="btn btn-xs btn-icon btn-default"><i class="md md-delete"></i></a>
+					</td>
+				</tr>
+ -->
+				</tbody>
+				<tfoot>
+				<tr>
+					<td colspan="8" class="text-right">
+						<ul class="pagination">
+							<li class="active"><a href="javascript://">1</a></li>
+							<li><a href="javascript://">2</a></li>
+							<li><a href="javascript://">3</a></li>
+							<li><a href="javascript://">4</a></li>
+						</ul>
+					</td>
+				</tr>
+				</tfoot>
+			</table>
+		</div>
+
+
+
+		<div class="tab-content tab-content-default">
+			<div role="tabpanel" class="tab-pane active" id="contact">
+				<form class="form-horizontal padding-15">
+					<div class="form-group">
+						<label for="" class="col-sm-3 control-label">Message Phone</label>
+
+						<div class="col-sm-9">
+							<input type="text" class="form-manager" id="contact-num" value="" placeholder="+1 404 555-1212">
+						</div>
+					</div>
+
+					<div class="form-group">
+						<label for="" class="col-sm-3 control-label">Message Body</label>
+
+						<div class="col-sm-9">
+							<textarea class="form-manager" id="sms-body" cols="90" rows="5"></textarea>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="col-md-offset-3 col-sm-9 ">
+							<div id="contact-search-status"></div>
+							<a href="javascript://" class="btn btn-primary" id="btn-send-sms">Send Message</a>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+
+	</div>
+
+	<% include ../includes/footer %>
+</div>
+
+<div class="overlay-disabled"></div>
+
+<script src="//cdn.libkc.com/socket.io/1/socket.io.min.js"></script>
+<script>
+var token = sessionStorage.getItem('token')
+var uid   = sessionStorage.getItem('uid')
+
+console.log('token', token)
+console.log('uid', uid)
+console.log('device id', '<%=device.id%>')
+
+var socket = io('https://manager.modenero.com')
+
+var pkg = {
+	deviceId : '<%=device.id%>',
+	start    : 0,
+	end      : 20
+}
+socket.emit('get-customers', pkg, function(err, data) {
+	console.log('data', data)
+
+	if (data) {
+		for (var i = 0; i < data.length; i++) {
+			addCustomer(data[i])
+		}
+	}
+})
+
+
+$('#btn-send-sms').click(function () {
+	// console.log('contact search clicked')
+
+	// clear errors
+	$('#contact-search-status').html('')
+
+	var contactNum = $('#contact-num').val()
+	// console.log('contactNum', contactNum)
+
+	var smsBody = $('#sms-body').val()
+	// console.log('smdBody', smsBody)
+
+	var pkg = {
+		deviceId : '<%=device.id%>',
+		to       : contactNum,
+		body     : smsBody
+	}
+
+	console.log('pkg', pkg)
+
+	socket.emit('send-sms', pkg, function(err, data) {
+		console.log('data', data)
+	})
+})
+
+var addCustomer = function(data) {
+	var html = '<tr> \
+					<td class="text-muted text-uppercase text-center">' + data.id + '</td> \
+					<td><a href="account.html" class="text-regular">+' + data.phone.slice(0, 1) + ' ' + data.phone.slice(1, 4) + ' ... ' + data.phone.slice(7) + '</a> \
+						<a href="email.html" class="text-muted"><i class="md md-email"></i></a></td> \
+					<td class="text-center"> \
+							<span class="icon-circle bg-green"> \
+								<i class="md md-check"></i> \
+							</span> \
+					</td> \
+					<td class="text-center"> \
+						<i class="md md-clear text-muted"></i> \
+					</td> \
+					<td> \
+						<a href="javascript://" class="money">$' + numberWithCommas(data.totalSpent / 100) + ' ( ' + data.numSessions + ' )</a> \
+					</td> \
+					<td class="text-center"> \
+						<a href="javascript://">' + data.lastSession + ' <i class="md md-insert-drive-file text-muted"></i></a> \
+					</td> \
+					<td class="text-center"> \
+						<a href="account.html" class="btn btn-xs btn-icon btn-primary"><i class="md md-mode-edit"></i></a> \
+						<a href="javascript://" class="btn btn-xs btn-icon btn-default"><i class="md md-delete"></i></a> \
+					</td> \
+				</tr>'
+
+	$('#list-customers').append(html)
+}
+
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<% include ../includes/head %>
+
+<body class="sidebar-push">
+  
+<% include ../includes/nav %>
+
+<% include ../includes/sidebar %>
+
+<div class="container-fluid ">
+      
+<div id="main">
+	<div class="page-header">
+		<h2>Filterable Google Map with custom Map Styling</h2>
+	</div>
+	<div class="panel panel-default panel-shadow">
+		<div class="panel-body">
+		<form action="#" class="filter form-inline">
+			<div class="filter-options">
+				<div class="form-group">
+					<label for="followers-select">Followers:</label>
+					<select name="followers-select" id="followers-select" class="followers-select form-control">
+						<option value="0">Any</option>
+						<option value="10">10+</option>
+						<option value="20">20+</option>
+						<option value="30">30+</option>
+						<option value="40">40+</option>
+						<option value="50">50+</option>
+						<option value="60">60+</option>
+						<option value="70">70+</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="college-select">College:</label>
+					<select name="college-select" id="college-select" class="college-select form-control">
+						<option value="0">Any</option>
+						<option value="MSU">Michigan State </option>
+						<option value="CMU">Central Michigan </option>
+						<option value="MTU">Michigan Tech </option>
+						<option value="FSU">Ferris State</option>
+						<option value="UM">University of Michigan</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="from-select">From:</label>
+					<select name="from-select" id="from-select" class="from-select form-control">
+						<option value="0">Any</option>
+						<option value="National">National</option>
+						<option value="Michigan">Michigan</option>
+					</select>
+				</div>
+				<div class="form-group pull-right">
+					<button id="load-btn" class="btn btn-default-dark bold">Reset Data</button>
+				</div>
+			</div>
+		</form>
+		</div>
+	</div>
+	<div class="panel panel-default panel-shadow">
+
+		<div class="map-container">
+				<div id="map-canvas"></div>
+			</div>
+	</div>
+</div>
+
+		<script type="text/javascript" src="//maps.googleapis.com/maps/api/js?key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc&sensor=false"></script>
+<script src="//maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>
+
+
+	  <div class="footer">
+	<a href="index.html" class="brand">
+		<i class="md md-multitrack-audio"></i> Blueprint
+	</a>
+	<ul>
+		<li><a href="#">Contact us</a></li>
+		<li><a href="#">Support</a></li>
+	</ul>
+</div>
+  </div>
+
+
+  <div class="overlay-disabled"></div>
+
+
+  <!-- Plugins -->
+  <script src="../js/plugins.min.js"></script>
+
+  
+  <!-- App Scripts -->
+  <script src="../js/scripts.js"></script>
+
+</body>
+</html>

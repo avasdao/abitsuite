@@ -1,0 +1,36 @@
+<div class="footer">
+    <a href="index.html" class="brand">
+        <i class="md md-multitrack-audio"></i> Modenero Manager
+    </a>
+
+    <ul>
+        <li>&copy; 2016 Modenero Corp. All rights reserved.
+    </ul>
+</div>
+
+<!-- Plugins -->
+<script src="/manager/js/plugins.min.js"></script>
+
+<!-- App Scripts -->
+<script src="/manager/js/scripts.js"></script>
+
+<!-- Moment JS -->
+<script src="//cdn.libkc.com/momentjs/2/moment.min.js"></script>
+
+<!-- Numeral -->
+<script src="//cdn.libkc.com/numeral/1/numeral.min.js"></script>
+
+<!-- Mondenero Price Index Data -->
+<script>
+$.getJSON('//api.modenero.info/v1/mpi?callback=?', function (data) {
+    // console.log('MPI Data', data)
+
+    // retrieve concierge usd
+    var concierge_usd = data.concierge_usd
+
+    // set concierge usd to header
+    $('#concierge_usd').html('$' + concierge_usd.toFixed(2))
+})
+</script>
+
+

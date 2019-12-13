@@ -9,9 +9,9 @@
                     <input type="search" class="form-control" placeholder="Search...">
                 </div>
                 <nav class="nav">
-                    <a href="dashboard-one.html" class="nav-link"><i data-feather="help-circle"></i></a>
-                    <a href="dashboard-one.html" class="nav-link"><i data-feather="grid"></i></a>
-                    <a href="dashboard-one.html" class="nav-link"><i data-feather="align-left"></i></a>
+                    <a href="javascript://" class="nav-link"><i data-feather="help-circle"></i></a>
+                    <a href="javascript://" class="nav-link" @click="openWorkspace('dbManager')"><i data-feather="grid"></i></a>
+                    <a href="javascript://" class="nav-link"><i data-feather="align-left"></i></a>
                 </nav>
             </div><!-- content-header -->
 
@@ -21,7 +21,7 @@
                         <div>
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb breadcrumb-style1 mg-b-10">
-                                    <li class="breadcrumb-item"><a href="dashboard-one.html#">Telr</a></li>
+                                    <li class="breadcrumb-item"><a href="javascript://#">Telr</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Welcome</li>
                                 </ol>
                             </nav>
@@ -117,12 +117,12 @@
                                             <div class="col-sm-5">
                                                 <h3 class="tx-normal tx-rubik tx-spacing--2 mg-b-5">$620,076</h3>
                                                 <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-10">MRR Growth</h6>
-                                                <p class="mg-b-0 tx-12 tx-color-03">Measure How Fast You’re Growing Monthly Recurring Revenue. <a href="dashboard-one.html">Learn More</a></p>
+                                                <p class="mg-b-0 tx-12 tx-color-03">Measure How Fast You’re Growing Monthly Recurring Revenue. <a href="javascript://">Learn More</a></p>
                                             </div><!-- col -->
                                             <div class="col-sm-5 mg-t-20 mg-sm-t-0">
                                                 <h3 class="tx-normal tx-rubik tx-spacing--2 mg-b-5">$1,200</h3>
                                                 <h6 class="tx-uppercase tx-11 tx-spacing-1 tx-color-02 tx-semibold mg-b-10">Avg. MRR/Customer</h6>
-                                                <p class="mg-b-0 tx-12 tx-color-03">The revenue generated per account on a monthly or yearly basis. <a href="dashboard-one.html">Learn More</a></p>
+                                                <p class="mg-b-0 tx-12 tx-color-03">The revenue generated per account on a monthly or yearly basis. <a href="javascript://">Learn More</a></p>
                                             </div><!-- col -->
                                         </div><!-- row -->
                                     </div>
@@ -165,7 +165,7 @@
                                 <div class="card-header d-flex align-items-center justify-content-between">
                                     <h6 class="mg-b-0">Sales Revenue</h6>
                                     <div class="tx-13 d-flex align-items-center">
-                                        <span class="mg-r-5">Country:</span> <a href="dashboard-one.html" class="d-flex align-items-center link-03 lh-0">USA <i class="icon ion-ios-arrow-down mg-l-5"></i></a>
+                                        <span class="mg-r-5">Country:</span> <a href="javascript://" class="d-flex align-items-center link-03 lh-0">USA <i class="icon ion-ios-arrow-down mg-l-5"></i></a>
                                     </div>
                                 </div><!-- card-header -->
                                 <div class="card-body pd-0">
@@ -327,8 +327,8 @@
                                 <div class="card-header d-flex align-items-center justify-content-between">
                                     <h6 class="mg-b-0">Transaction History</h6>
                                     <div class="d-flex tx-18">
-                                        <a href="dashboard-one.html" class="link-03 lh-0"><i class="icon ion-md-refresh"></i></a>
-                                        <a href="dashboard-one.html" class="link-03 lh-0 mg-l-10"><i class="icon ion-md-more"></i></a>
+                                        <a href="javascript://" class="link-03 lh-0"><i class="icon ion-md-refresh"></i></a>
+                                        <a href="javascript://" class="link-03 lh-0 mg-l-10"><i class="icon ion-md-more"></i></a>
                                     </div>
                                 </div>
                                 <ul class="list-group list-group-flush tx-13">
@@ -389,7 +389,7 @@
                                     </li>
                                 </ul>
                                 <div class="card-footer text-center tx-13">
-                                    <a href="dashboard-one.html" class="link-03">View All Transactions <i class="icon ion-md-arrow-down mg-l-5"></i></a>
+                                    <a href="javascript://" class="link-03">View All Transactions <i class="icon ion-md-arrow-down mg-l-5"></i></a>
                                 </div><!-- card-footer -->
                             </div><!-- card -->
                         </div>
@@ -399,8 +399,8 @@
                                 <div class="card-header d-flex align-items-center justify-content-between">
                                     <h6 class="mg-b-0">New Customers</h6>
                                     <div class="d-flex align-items-center tx-18">
-                                        <a href="dashboard-one.html" class="link-03 lh-0"><i class="icon ion-md-refresh"></i></a>
-                                        <a href="dashboard-one.html" class="link-03 lh-0 mg-l-10"><i class="icon ion-md-more"></i></a>
+                                        <a href="javascript://" class="link-03 lh-0"><i class="icon ion-md-refresh"></i></a>
+                                        <a href="javascript://" class="link-03 lh-0 mg-l-10"><i class="icon ion-md-more"></i></a>
                                     </div>
                                 </div>
                                 <ul class="list-group list-group-flush tx-13">
@@ -412,10 +412,10 @@
                                         </div>
                                         <div class="mg-l-auto d-flex align-self-center">
                                             <nav class="nav nav-icon-only">
-                                                <a href="dashboard-one.html" class="nav-link d-none d-sm-block"><i data-feather="mail"></i></a>
-                                                <a href="dashboard-one.html" class="nav-link d-none d-sm-block"><i data-feather="slash"></i></a>
-                                                <a href="dashboard-one.html" class="nav-link d-none d-sm-block"><i data-feather="user"></i></a>
-                                                <a href="dashboard-one.html" class="nav-link d-sm-none"><i data-feather="more-vertical"></i></a>
+                                                <a href="javascript://" class="nav-link d-none d-sm-block"><i data-feather="mail"></i></a>
+                                                <a href="javascript://" class="nav-link d-none d-sm-block"><i data-feather="slash"></i></a>
+                                                <a href="javascript://" class="nav-link d-none d-sm-block"><i data-feather="user"></i></a>
+                                                <a href="javascript://" class="nav-link d-sm-none"><i data-feather="more-vertical"></i></a>
                                             </nav>
                                         </div>
                                     </li>
@@ -427,10 +427,10 @@
                                         </div>
                                         <div class="mg-l-auto d-flex align-self-center">
                                             <nav class="nav nav-icon-only">
-                                                <a href="dashboard-one.html" class="nav-link d-none d-sm-block"><i data-feather="mail"></i></a>
-                                                <a href="dashboard-one.html" class="nav-link d-none d-sm-block"><i data-feather="slash"></i></a>
-                                                <a href="dashboard-one.html" class="nav-link d-none d-sm-block"><i data-feather="user"></i></a>
-                                                <a href="dashboard-one.html" class="nav-link d-sm-none"><i data-feather="more-vertical"></i></a>
+                                                <a href="javascript://" class="nav-link d-none d-sm-block"><i data-feather="mail"></i></a>
+                                                <a href="javascript://" class="nav-link d-none d-sm-block"><i data-feather="slash"></i></a>
+                                                <a href="javascript://" class="nav-link d-none d-sm-block"><i data-feather="user"></i></a>
+                                                <a href="javascript://" class="nav-link d-sm-none"><i data-feather="more-vertical"></i></a>
                                             </nav>
                                         </div>
                                     </li>
@@ -442,10 +442,10 @@
                                         </div>
                                         <div class="mg-l-auto d-flex align-self-center">
                                             <nav class="nav nav-icon-only">
-                                                <a href="dashboard-one.html" class="nav-link d-none d-sm-block"><i data-feather="mail"></i></a>
-                                                <a href="dashboard-one.html" class="nav-link d-none d-sm-block"><i data-feather="slash"></i></a>
-                                                <a href="dashboard-one.html" class="nav-link d-none d-sm-block"><i data-feather="user"></i></a>
-                                                <a href="dashboard-one.html" class="nav-link d-sm-none"><i data-feather="more-vertical"></i></a>
+                                                <a href="javascript://" class="nav-link d-none d-sm-block"><i data-feather="mail"></i></a>
+                                                <a href="javascript://" class="nav-link d-none d-sm-block"><i data-feather="slash"></i></a>
+                                                <a href="javascript://" class="nav-link d-none d-sm-block"><i data-feather="user"></i></a>
+                                                <a href="javascript://" class="nav-link d-sm-none"><i data-feather="more-vertical"></i></a>
                                             </nav>
                                         </div>
                                     </li>
@@ -457,10 +457,10 @@
                                         </div>
                                         <div class="mg-l-auto d-flex align-self-center">
                                             <nav class="nav nav-icon-only">
-                                                <a href="dashboard-one.html" class="nav-link d-none d-sm-block"><i data-feather="mail"></i></a>
-                                                <a href="dashboard-one.html" class="nav-link d-none d-sm-block"><i data-feather="slash"></i></a>
-                                                <a href="dashboard-one.html" class="nav-link d-none d-sm-block"><i data-feather="user"></i></a>
-                                                <a href="dashboard-one.html" class="nav-link d-sm-none"><i data-feather="more-vertical"></i></a>
+                                                <a href="javascript://" class="nav-link d-none d-sm-block"><i data-feather="mail"></i></a>
+                                                <a href="javascript://" class="nav-link d-none d-sm-block"><i data-feather="slash"></i></a>
+                                                <a href="javascript://" class="nav-link d-none d-sm-block"><i data-feather="user"></i></a>
+                                                <a href="javascript://" class="nav-link d-sm-none"><i data-feather="more-vertical"></i></a>
                                             </nav>
                                         </div>
                                     </li>
@@ -472,16 +472,16 @@
                                         </div>
                                         <div class="mg-l-auto d-flex align-self-center">
                                             <nav class="nav nav-icon-only">
-                                                <a href="dashboard-one.html" class="nav-link d-none d-sm-block"><i data-feather="mail"></i></a>
-                                                <a href="dashboard-one.html" class="nav-link d-none d-sm-block"><i data-feather="slash"></i></a>
-                                                <a href="dashboard-one.html" class="nav-link d-none d-sm-block"><i data-feather="user"></i></a>
-                                                <a href="dashboard-one.html" class="nav-link d-sm-none"><i data-feather="more-vertical"></i></a>
+                                                <a href="javascript://" class="nav-link d-none d-sm-block"><i data-feather="mail"></i></a>
+                                                <a href="javascript://" class="nav-link d-none d-sm-block"><i data-feather="slash"></i></a>
+                                                <a href="javascript://" class="nav-link d-none d-sm-block"><i data-feather="user"></i></a>
+                                                <a href="javascript://" class="nav-link d-sm-none"><i data-feather="more-vertical"></i></a>
                                             </nav>
                                         </div>
                                     </li>
                                 </ul>
                                 <div class="card-footer text-center tx-13">
-                                    <a href="dashboard-one.html" class="link-03">View More Customers <i class="icon ion-md-arrow-down mg-l-5"></i></a>
+                                    <a href="javascript://" class="link-03">View More Customers <i class="icon ion-md-arrow-down mg-l-5"></i></a>
                                 </div><!-- card-footer -->
                             </div><!-- card -->
                         </div>
@@ -539,6 +539,9 @@ export default {
     methods: {
         generateReport: function () {
             alert('oops! that is offline')
+        },
+        openWorkspace: function (_workspace) {
+            alert('opening ' + _workspace)
         },
     },
     mounted: function () {

@@ -1,0 +1,222 @@
+<% include includes/head %>
+
+<body class="sidebar-push">
+
+<% include includes/nav %>
+
+<% include includes/sidebar %>
+
+<div class="container-fluid ">
+    <!--       
+    <div id="notification" data-position="top-right" class="display-none">
+        You have a new message!
+    </div>
+     -->
+
+    <div id="main">
+        <div class="page-header">
+            <h2>Dashboard</h2>
+        </div>
+
+        <% include includes/dashboard/recent %>
+
+        <% include includes/dashboard/charts %>
+
+        <div class="row">
+            <div class="col-md-6">
+                <h4 class="headline">Recent Credits <i class="md md-credit-card"></i></h4>
+
+                <div id='recent-credits'></div>
+
+                <div class="media">
+                    <a href="javascript://" class="btn btn-primary bold">view all</a>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <h4 class="headline">Recent Debits <i class="md md-credit-card"></i></h4>
+
+                <div id='recent-debits'></div>
+
+                <div class="media">
+                    <a href="javascript://" class="btn btn-primary bold">view all</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <% include includes/dashboard/payments %>
+            <% include includes/dashboard/demographic %>
+        </div>
+    </div>
+
+    <!-- Loaded only in index.html for demographic vector map-->
+    <script src="/manager/js/jvectormap.js"></script>
+
+    <% include includes/footer %>
+</div>
+
+<div class="overlay-disabled"></div>
+
+  
+<script src="//cdn.libkc.com/socket.io/1/socket.io.min.js"></script>
+<script>
+<%if (token != '') {%>
+console.log('token is available')
+
+sessionStorage.setItem('sessionId', '<%=token%>')
+sessionStorage.setItem('uid', '<%=uid%>')
+
+var sessionId = '<%=token%>'
+var uid   = '<%=uid%>'
+<%} else {%>
+console.log('token is NOT available')
+
+var sessionId = sessionStorage.getItem('sessionId')
+var uid       = sessionStorage.getItem('uid')
+<%}%>
+
+console.log('sessionId', sessionId)
+console.log('uid', uid)
+
+var socket = io('https://manager.modenero.com')
+
+var pkg = {
+    sessionId : sessionId,
+    start     : 0,
+    end       : 20
+}
+socket.emit('get-dashboard', pkg, function(err, data) {
+    console.log('data', data)
+
+    if (data) {
+        $('#balance_usd').html(numeral(data.usd / 100).format('$0,0.00'))
+
+        for (var i = 0; i < data.recentCredits.length; i++) {
+            addCredit(numeral(data.recentCredits[i].amount / 100).format('$0,0.00'), 
+                data.recentCredits[i].referenceId)
+        }
+
+        for (var i = 0; i < data.recentDebits.length; i++) {
+            addDebit(numeral(data.recentDebits[i].amount / 100).format('$0,0.00'), 
+                data.recentDebits[i].referenceId)
+        }
+
+    }
+})
+
+var addCredit = function (amount, description) {
+    var html = ' \
+        <div class="panel panel-shadow"> \
+            <div class="media"> \
+                <div class="media-left"> \
+                    <img src="/manager/images/screen.png" width="85" alt="guy"> \
+                </div> \
+                <div class="media-body media-middle"> \
+                    <a href="javascript://" class="text-regular">' + description + '</a> \
+                    <div class="text-muted"> \
+                        unknown \
+                    </div> \
+                </div> \
+                <div class="media-right media-middle"> \
+                    <div class="h3 margin-none text-muted width-150 text-right panel-body"> \
+                        ' + amount + ' \
+                    </div> \
+                </div> \
+            </div> \
+        </div> \
+    '
+
+    $('#recent-credits').html($('#recent-credits').html() + html)
+}
+
+var addDebit = function (amount, description) {
+    var html = ' \
+        <div class="panel panel-shadow"> \
+            <div class="media"> \
+                <div class="media-left"> \
+                    <img src="/manager/images/screen.png" width="85" alt="guy"> \
+                </div> \
+                <div class="media-body media-middle"> \
+                    <a href="javascript://" class="text-regular">' + description + '</a> \
+                    <div class="text-muted"> \
+                        unknown \
+                    </div> \
+                </div> \
+                <div class="media-right media-middle"> \
+                    <div class="h3 margin-none text-muted width-150 text-right panel-body"> \
+                        ' + amount + ' \
+                    </div> \
+                </div> \
+            </div> \
+        </div> \
+    '
+
+    $('#recent-debits').html($('#recent-debits').html() + html)
+}
+
+var addStatement = function (amount, description) {
+    var html = ' \
+        <div class="panel panel-default panel-shadow"> \
+            <table class="table table-bordered"> \
+                <tr> \
+                    <td class="bold text-primary">' + amount + '</td> \
+                    <td> \
+                        <a href="javascript://" class="text-regular"> \
+                            ' + description + ' \
+                        </a> \
+                    </td> \
+                    <td class="text-center"> \
+                        <a href="javascript://"><i class="fa fa-download text-muted"></i></a> \
+                    </td> \
+                </tr> \
+            </table> \
+        </div> \
+    '
+
+    $('#recent-transactions').html(html + $('#recent-transactions').html())
+}
+
+
+var day0  = moment().format('ddd') + '|' + moment().format('D'),
+    day1  = moment().subtract(1,  'days').format('ddd') + '|' + moment().subtract(1,  'days').format('D'),
+    day2  = moment().subtract(2,  'days').format('ddd') + '|' + moment().subtract(2,  'days').format('D'),
+    day3  = moment().subtract(3,  'days').format('ddd') + '|' + moment().subtract(3,  'days').format('D'),
+    day4  = moment().subtract(4,  'days').format('ddd') + '|' + moment().subtract(4,  'days').format('D'),
+    day5  = moment().subtract(5,  'days').format('ddd') + '|' + moment().subtract(5,  'days').format('D'),
+    day6  = moment().subtract(6,  'days').format('ddd') + '|' + moment().subtract(6,  'days').format('D')
+
+var day0Val  = 312.50,
+    day1Val  = 225.86,
+    day2Val  = 185.12,
+    day3Val  = 548.23,
+    day4Val  = 985.58,
+    day5Val  = 682.23,
+    day6Val  = 1059.12
+
+var data = {
+    labels: [ day6, day5, day4, day3, day2, day1, day0 ],
+    series: [ {
+        data: [ day6Val, day5Val, day4Val, day3Val, day2Val, day1Val, day0Val ],
+        className: "brand-primary-stroke"
+    } ]
+}
+
+new Chartist.Line('#recent-chart', data, {
+// new Chartist.Bar('#txs-chart', data, {
+    axisY: {
+        labelInterpolationFnc: function(value) {
+            return '$' + value
+        }
+    }
+}).on('draw', function(data) {
+    if(data.type === 'bar') {
+        data.element.attr({
+            style: 'stroke-width: 30px'
+        })
+    }
+})
+</script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title><%=pageTitle%></title>
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="/images/favicon.png">
+
+    <link rel="stylesheet" href="/manager/css/style.css">
+  
+    <script src="/manager/js/jquery.js"></script>
+</head>
+
+<body>
+
+<div class="container-fluid">      
+    <div id="main">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="login">
+
+                    <div class="logo" href="/manager">
+                        <i class="md md-lg md-multitrack-audio"></i> Modenero Manager
+                    </div>
+                    
+                    <div class="panel panel-default panel-shadow">
+                        <div class="avatar">
+                            <img src="/manager/images/incognito.png" alt="guy" class="img-circle img-responsive"/>
+                        </div>
+                    
+                        <form action="/manager/signin" method="POST">
+                            <input type="hidden" id="origin" name="origin" value="<%=origin%>">
+
+                            <div class="panel-body">
+                                <div class="form-group">
+                                    <label for="user">Email address</label>
+                                    <input type="email" class="form-manager" id="user" name="user" placeholder="Enter email">
+                                </div>
+                            
+                                <div class="form-group margin-none">
+                                    <div class="media">
+                                        <div class="media-body media-middle">
+                                            <label for="two-factor">2-Factor Authentication</label>
+                                        </div>
+                                    
+                                        <div class="media-right media-middle">
+                                            <a href="javascript://" class="small pull-right">recover</a>
+                                        </div>
+                                    </div>
+                                
+                                    <input type="text" class="form-manager" id="two-factor" placeholder="Enter Code Here">
+                                </div>
+                            </div>
+                        
+                            <div class="form-group text-center">
+                                <!-- <button type="submit" class="btn btn-primary">Sign In <i class="md md-lock-open"></i></button> -->
+                                <button type="button" class="btn btn-primary">Sign In <i class="md md-lock-open"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <% if (successes[0]) {%>
+                <div class="alert alert-success">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    
+                    <%-successes[0]%>
+                </div>
+                <% } %>
+
+                <% if (errors[0]) {%>
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    
+                    <%-errors[0]%>
+                </div>
+                <% } %>
+
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    
+                    System is in Maintenance Mode and will be back online shortly.
+                    Sorry for the inconvenience.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Plugins -->
+<script src="/manager/js/plugins.js"></script>
+
+<!-- App Scripts -->
+<script src="/manager/js/scripts.js"></script>
+
+</body>
+</html>

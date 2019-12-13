@@ -1,0 +1,125 @@
+<div class="sidebar left-side" id="sidebar-left">
+    <div class="sidebar-user">
+        <div class="media sidebar-padding">
+            <div class="media-left media-middle">
+                <img src="<%=profile.gravatar%>" alt="person" class="img-circle"/>
+            </div>
+
+            <div class="media-body media-middle">
+                <a href="javascript://" class="h4 margin-none"><%=profile.nickname%></a>
+
+                <ul class="list-unstyled list-inline margin-none">
+                    <li><a href="javascript://"><i class="md-person-outline"></i></a></li>
+                    <li><a href="javascript://"><i class="md-email"></i></a></li>
+                    <li><a href="javascript://"><i class="md-settings"></i></a></li>
+                    <li><a href="/manager/signout"><i class="md-exit-to-app"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wrapper Reqired by Nicescroll (start scroll from here) -->
+    <div class="nicescroll">
+        <div class="wrapper" style="margin-bottom:90px">
+            <h4 class="sidebar-headline">Financial Network</h4>
+
+            <ul class="nav nav-sidebar" id="sidebar-menu">
+
+                <li><a href="/manager"><i class="md md-dashboard"></i> Dashboard <span class="sr-only">(current)</span></a></li>
+
+                <% if (profile.nickname == 'nyusternie') { %>
+                <li><a href="/manager/account"><i class="md md-account-circle"></i>Account</a></li>
+                <li><a href="/manager/timeline"><i class="md md-dashboard"></i> Timeline</a></li>
+                <li><a href="/manager/email"><i class="md md-email"></i>Emails</a></li>
+                <li><a href="/manager/calendar"><i class="md md-event-available"></i>Calendar</a></li>
+                <% } %>
+            </ul>
+
+            <h4 class="sidebar-headline">Concierge</h4>
+
+            <ul class="nav nav-sidebar">
+                <li class="active"><a href="/manager/concierge"><i class="md md-dashboard"></i> Dashboard <span class="sr-only">(current)</span></a></li>
+
+                <% for (var i = 0; i < profile.devices.length; i++) { %>
+                <li class="submenu">
+                    <a href="javascript://"><i class="md md-tv"></i><%=profile.devices[i].title%></a>
+                    <ul>
+                        <li><a href="/manager/concierge/transactions/<%=profile.devices[i].deviceId%>"><i class="md-view-list"></i> Transactions</a></li>
+                        <li><a href="/manager/concierge/cashboxes/<%=profile.devices[i].deviceId%>"><i class="md md-local-atm"></i> Cashboxes</a></li>
+                    </ul>
+                </li>
+                <% } %>
+
+                <% if (profile.nickname == 'nyusternie') { %>
+                <li><a href="/manager/customers"><i class="md md-group"></i> Customers</a></li>
+                <li><a href="/manager/finances"><i class="md md-attach-money"></i> Financial</a></li>
+                <li><a href="/manager/acms"><i class="md md-local-atm"></i>ACMs</a></li>
+                <li><a href="/manager/forms"><i class="md md-text-format"></i>Form Elements</a></li>
+                <li><a href="/manager/tables"><i class="md md-list"></i>Tables</a></li>
+                <li><a href="/manager/charts"><i class="md md-insert-chart"></i>Charts</a></li>
+                <li><a href="/manager/maps"><i class="md md-map"></i>Maps</a></li>
+
+                <li class="submenu">
+                    <a href="javascript://"><i class="md md-my-library-add"></i>Components</a>
+
+                    <ul>
+                        <li><a href="/manager/buttons">Buttons</a></li>
+                        <li>
+                            <a href="icons.html">
+                                Icons &nbsp;<span class="label label-primary">1468</span>
+                            </a>
+                        </li>
+                        <li><a href="/manager/panels">Panels </a></li>
+                        <li><a href="/manager/progress">Progress & Ratings</a></li>
+                        <li><a href="/manager/tabs">Tabs</a></li>
+                        <li><a href="/manager/tree">Tree View</a></li>
+                        <li><a href="/manager/nestable">Nestable</a></li>
+                        <li><a href="notifications.html">Notifications</a></li>
+                    </ul>
+                </li>
+
+                <li class="submenu">
+                    <a href="javascript://">
+                        <i class="md md-my-library-add"></i>Resources
+                    </a>
+                    <ul>
+                        <li><a href="javascript://">Modenero Price Index</a></li>
+                        <li><a href="javascript://">Modenero.Info</a></li>
+                        <li><a href="javascript://">Users Online <span class="pull-right label label-primary">168</span></a></li>
+                    </ul>
+                </li>
+                <% } %>
+            </ul>
+
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+        </div>
+    </div>
+</div>
+        <div class="sidebar right-side" id="sidebar-right">
+    <!-- Wrapper Reqired by Nicescroll -->
+    <div class="nicescroll">
+        <div class="wrapper">
+            <div class="block-primary">
+                <div class="media">
+                    <div class="media-left media-middle">
+                        <a href="javascript://">
+                            <img src="/manager/images/guy.jpg" alt="person" class="img-circle border-white" width="60"/>
+                        </a>
+                    </div>
+                    <div class="media-body media-middle">
+                        <a href="account.html" class="h4">Andrew Brain</a>
+                        <a href="login.html" class="logout pull-right"><i class="md md-exit-to-app"></i></a>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav nav-sidebar" id="sidebar-menu">
+                <li><a href="account.html"><i class="md md-person-outline"></i> Account</a></li>
+                <li><a href="email.html"><i class="md md-email"></i> Emails</a></li>
+                <li><a href="javascript://"><i class="md md-attach-money"></i> Payments</a></li>
+                <li><a href="javascript://"><i class="md md-settings"></i> Settings</a></li>
+                <li><a href="login.html"><i class="md md-exit-to-app"></i> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</div>

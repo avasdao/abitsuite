@@ -1,0 +1,194 @@
+<% include ../includes/head %>
+
+<body class="sidebar-push">
+  
+<% include ../includes/nav %>
+
+<% include ../includes/sidebar %>
+
+<div class="container-fluid ">
+	<div id="main">
+		<div class="page-header">
+			<div class="pull-right">
+				<select class="selectpicker" multiple data-max-options="2">
+					<option selected>16 Dec 2014</option>
+					<option selected>25 Dec 2014</option>
+					<option>01 Jan 2015</option>
+					<option>15 Jan 2015</option>
+				</select>
+			</div>
+
+			<h1><i class="md-view-list"></i> <%=device.title%> Transactions</h1>
+		</div>
+
+		<div class="panel panel-default padding-15">
+			<div class="ct-chart" id="txs-chart" style="height: 300px; padding-right:15px;"></div>
+		</div>
+
+		<table class="table table-bordered">
+			<thead>
+			<tr>
+				<th colspan="5" class="text-center">
+					<span class="pull-right">
+						<a href="#" class="btn btn-xs btn-primary btn-icon"><i class="md md-add"></i></a>
+						<a href="#" class="btn btn-xs btn-default-dark btn-icon"><i class="md md-search"></i></a>
+					</span>
+				
+					<div class="h4 margin-none">
+						<span class="regular">Coin Balance</span> 
+						<span class="text-primary">$<%=(deviceBalUsd / 100).toFixed(2)%></span>
+						&nbsp; &nbsp; | &nbsp; &nbsp;
+						<span class="regular">Cashbox Balance</span> 
+						<span class="text-primary">$<%=cashboxBal%> [ <%=numNotes%> ]</span>
+					</div>
+				</th>
+			</tr>
+			<tr class="text-uppercase ">
+				<th class="text-center" style="width:80px">Type</th>
+				<th>Information</th>
+				<th class="text-center" style="width:130px">Expense</th>
+				<th class="text-center" style="width:130px">Income</th>
+				<th class="text-center" style="width:130px">Rate</th>
+			</tr>
+			</thead>
+			<tbody>
+			<% for (var i = 0; i < txs.length; i++) { %>
+			<tr>
+				<td class="text-center">
+					<span class="fa-stack fa-lg">
+						<i class="fa fa-circle fa-stack-2x text-muted"></i>
+						<i class="fa fa-money fa-stack-1x text-white"></i>
+					</span>
+				</td>
+				<td>
+					<% if (txs[i].referenceId.length == 64) { %>
+					<span class="hidden-xs"><a href="https://modenero.info/tx/<%=txs[i].referenceId%>/" target="_blank"><%=txs[i].referenceId%></a></span>
+					<span class="visible-xs"><a href="https://modenero.info/tx/<%=txs[i].referenceId%>/" target="_blank"><%=txs[i].referenceId.slice(0, 12)%>...<%=txs[i].referenceId.slice(-12)%></a></span>
+
+					<!-- <a href="https://modenero.info/tx/<%=txs[i].referenceId%>/" target="_blank"><%=txs[i].referenceId.slice(0, 12)%>...<%=txs[i].referenceId.slice(-12)%></a> -->
+					<% } else { %>
+					<%=txs[i].referenceId%>
+					<% } %>
+					<div class="hidden-xs text-muted lastupdate"><%=txs[i].lastupdate%></div>
+					<div class="visible-xs text-muted lastupdate-abbr"><%=txs[i].lastupdate%></div>
+				</td>
+
+				<% if (txs[i].amount < 0 && txs[i].isCashbox) { %>
+				<td colspan="3" class="text-center">
+					<span class="text-blue bold">Cashbox $<%=(txs[i].amount / 100).toFixed(2)%></span>
+				</td>
+				<% } else if (txs[i].referenceId.length != 64) { %>
+				<td colspan="3" class="text-center">
+					<span class="text-orange bold">$<%=(txs[i].amount / 100).toFixed(2)%></span>
+				</td>
+				<% } else if (txs[i].amount < 0) { %>
+				<td class="text-center">
+					<span class="text-orange bold">$<%=(txs[i].amount / 100).toFixed(2)%></span>
+				</td>
+				<td class="text-center">
+					<span class="text-green bold">$<%=Math.round(txs[i].amount / -(100 - txs[i].rate)).toFixed(2)%></span>
+				</td>
+				<td class="text-center">
+					<span class="text-muted bold"><%=txs[i].rate.toFixed(2)%>%</span>
+				</td>
+				<% } else { %>
+				<td colspan="3" class="text-center">
+					<span class="text-orange bold">$<%=(txs[i].amount / 100).toFixed(2)%></span>
+				</td>
+				<% } %>
+
+			</tr>
+			<% } %>
+			</tbody>
+			<tfoot>
+			<tr>
+				<td colspan="4" class="text-center">
+					<ul class="pagination margin-none">
+						<li class="active"><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+					</ul>
+				</td>
+			</tr>
+			</tfoot>
+		</table>
+	</div>
+
+	<% include ../includes/footer %>
+</div>
+
+<div class="overlay-disabled"></div>
+
+<script>
+var	day0 = moment().format('dddd') + '|' + moment().format('D'),
+	day1 = moment().subtract(1, 'days').format('dddd') + '|' + moment().subtract(1, 'days').format('D'),
+	day2 = moment().subtract(2, 'days').format('dddd') + '|' + moment().subtract(2, 'days').format('D'),
+	day3 = moment().subtract(3, 'days').format('dddd') + '|' + moment().subtract(3, 'days').format('D'),
+	day4 = moment().subtract(4, 'days').format('dddd') + '|' + moment().subtract(4, 'days').format('D'),
+	day5 = moment().subtract(5, 'days').format('dddd') + '|' + moment().subtract(5, 'days').format('D'),
+	day6 = moment().subtract(6, 'days').format('dddd') + '|' + moment().subtract(6, 'days').format('D')
+
+var day0Val = <%=summary7.day0 / 100%>,
+	day0Avg = <%=summary7.day0_avg / 100%>,
+	day1Val = <%=summary7.day1 / 100%>,
+	day1Avg = <%=summary7.day1_avg / 100%>,
+	day2Val = <%=summary7.day2 / 100%>,
+	day2Avg = <%=summary7.day2_avg / 100%>,
+	day3Val = <%=summary7.day3 / 100%>,
+	day3Avg = <%=summary7.day3_avg / 100%>,
+	day4Val = <%=summary7.day4 / 100%>,
+	day4Avg = <%=summary7.day4_avg / 100%>,
+	day5Val = <%=summary7.day5 / 100%>,
+	day5Avg = <%=summary7.day5_avg / 100%>,
+	day6Val = <%=summary7.day6 / 100%>,
+	day6Avg = <%=summary7.day6_avg / 100%>
+
+var data = {
+    labels: [ day6, day5, day4, day3, day2, day1, day0 ],
+    series: [ {
+        data: [ day6Avg, day5Avg, day4Avg, day3Avg, day2Avg, day1Avg, day0Avg ],
+        className: "brand-default-stroke"
+    }, {
+        data: [ day6Val, day5Val, day4Val, day3Val, day2Val, day1Val, day0Val ],
+        className: "brand-primary-stroke"
+    } ]
+}
+
+// new Chartist.Line('#txs-chart', data, {
+new Chartist.Bar('#txs-chart', data, {
+	axisY: {
+    	labelInterpolationFnc: function(value) {
+      		return '$' + value
+    	}
+  	}
+}).on('draw', function(data) {
+	if(data.type === 'bar') {
+		data.element.attr({
+			style: 'stroke-width: 30px'
+		})
+	}
+})
+
+// update display to localized dates
+$('.lastupdate').each(function (index) {
+	// convert utc to local
+	var local = moment($(this).text()).format('dddd, MMMM Do YYYY, h:mm:ss a')
+	// console.log('local', local)
+
+	// update the dates to local
+	$(this).text(local)
+})
+
+$('.lastupdate-abbr').each(function (index) {
+	// convert utc to local
+	var local = moment($(this).text()).format('dddd, M/D/YY, h:mm:ss a')
+	// console.log('local', local)
+
+	// update the dates to local
+	$(this).text(local)
+})
+</script>
+
+</body>
+</html>
