@@ -6,10 +6,9 @@
 import DashForge from './components/DashForge.vue'
 
 export default {
-  name: 'app',
-  components: {
-    DashForge
-  }
+    components: {
+        DashForge
+    },
 }
 </script>
 
