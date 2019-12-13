@@ -45,97 +45,18 @@
             </div><!-- aside-loggedin -->
 
             <ul class="nav nav-aside">
-                <!-- WORKSPACES -->
                 <div class="divider-text">Workspaces</div>
+
                 <li class="nav-item"><a href="/defi360" class="nav-link"><i data-feather="globe"></i> <span>DeFi Admin <small class="ml-1">[ Management ]</small></span></a></li>
+
                 <li class="nav-item"><a href="/defi360" class="nav-link"><i data-feather="umbrella"></i> <span>DeFi Project <small class="ml-1">[ Collaborate ]</small></span></a></li>
+
                 <li class="nav-item active"><a href="/telr" class="nav-link"><i data-feather="speaker"></i> <span>Telr <small class="ml-1">[ ATMs | POSs ]</small></span></a></li>
 
-                <!-- ACCOUNTING -->
-                <div class="divider-text">DeFi Admin Accounting</div>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="percent"></i> <span>Invocing</span></a></li>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="dollar-sign"></i> <span>Payroll</span></a></li>
-
-                <!-- SYSOPS -->
-                <div class="divider-text">DeFi Admin SysOps</div>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="database"></i> <span>Data Manager</span></a></li>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="server"></i> <span>Server Guru</span></a></li>
-
-                <div class="divider-text">DeFi Admin Security</div>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="shield"></i> <span>Crypto Guardian</span></a></li>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="book-open"></i> <span>Knowledge Center</span></a></li>
-
-                <div class="divider-text">My DeFi Project</div>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="calendar"></i> <span>Calendar <small class="ml-1">[ CalDAV ]</small></span></a></li>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="users"></i> <span>Contacts <small class="ml-1">[ CalDAV ]</small></span></a></li>
-                <li class="nav-item with-sub">
-                    <a href="javascript://" class="nav-link"><i data-feather="sliders"></i> <span>Preferences</span></a>
-
-                    <ul>
-                        <li><a href="javascript://">Notifications</a></li>
-                        <li><a href="javascript://">User Manager</a></li>
-                    </ul>
-                </li>
-
-                <div class="divider-text">DeFi Project Teams</div>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="activity"></i> <span>Activity Monitor</span></a></li>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="slack"></i> <span>Chat <small class="ml-1">[ Slack ]</small></span></a></li>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="trello"></i> <span>Tasks <small class="ml-1">[ Trello ]</small></span></a></li>
-
-                <div class="divider-text">DeFi Project Resources</div>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="github"></i> <span>Code Repositories</span></a></li>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="download-cloud"></i> <span>Downloads</span></a></li>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="book-open"></i> <span>Knowledge Centers</span></a></li>
-
-                <div class="divider-text">Telr App</div>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="tv"></i> <span>Manage Ads</span></a></li>
-
-                <div class="divider-text">Telr Host</div>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="list"></i> <span>Transactions</span></a></li>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="shuffle"></i> <span>Exchanges</span></a></li>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="credit-card"></i> <span>Wallets</span></a></li>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="dollar-sign"></i> <span>Payouts</span></a></li>
-                <li class="nav-item"><a href="javascript://" class="nav-link"><i data-feather="award"></i> <span>Compliance</span></a></li>
-                <li class="nav-item with-sub">
-                    <a href="javascript://" class="nav-link"><i data-feather="sliders"></i> <span>Preferences</span></a>
-
-                    <ul>
-                        <li><a href="javascript://">Notifications</a></li>
-                        <li><a href="javascript://">User Manager</a></li>
-                    </ul>
-                </li>
-
-                <div class="divider-text">Telr Rewards</div>
-                <li class="nav-item with-sub">
-                    <a href="javascript://" class="nav-link"><i data-feather="shopping-bag"></i> <span>Shops</span></a>
-
-                    <ul>
-                        <li><a href="javascript://">Gift Cards</a></li>
-                        <li><a href="javascript://">Open Bazaar</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="javascript://" class="nav-link"><i data-feather="gift"></i> <span>Community Chests</span></a>
-                </li>
-
-                <div class="divider-text">Telr Vue</div>
-                <li class="nav-item with-sub">
-                    <a href="javascript://" class="nav-link"><i data-feather="type"></i> <span>Localization</span></a>
-
-                    <ul>
-                        <li><a href="javascript://">Languages</a></li>
-                        <li><a href="javascript://">Currencies</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item with-sub">
-                    <a href="javascript://" class="nav-link"><i data-feather="edit"></i> <span>Customization</span></a>
-
-                    <ul>
-                        <li><a href="javascript://">Theme Gallery</a></li>
-                    </ul>
-                </li>
+                <router-view name="sidebar" />
 
                 <div class="divider-text">aBitSuite v19.12.13</div>
+
                 <div class="text-center">
                     <small>
                         Brought to you by Modenero Corp

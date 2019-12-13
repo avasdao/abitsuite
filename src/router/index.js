@@ -1,7 +1,11 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-/* Import components. */
+/* Import SIDEBAR components. */
+import DashboardSidebar from '@/components/Sidebar/Dashboard'
+import DbManagerSidebar from '@/components/Sidebar/DbManager'
+
+/* Import MAIN components. */
 import Dashboard from '@/components/Dashboard'
 import DbManager from '@/components/DbManager'
 
@@ -13,10 +17,18 @@ Vue.use(VueRouter)
  */
 const routes = [{
     path: '/',
-    component: Dashboard
+    component: Dashboard,
+    // components: {
+    //     default: Dashboard,
+    //     sidebar: DashboardSidebar,
+    // },
 }, {
     path: '/db-manager',
-    component: DbManager
+    component: DbManager,
+    // components: {
+    //     default: DbManager,
+    //     sidebar: DbManagerSidebar,
+    // },
 }]
 
 /* Export Vue Router. */

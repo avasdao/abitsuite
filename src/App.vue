@@ -17,7 +17,7 @@
             </div>
 
             <div class="content-body">
-                <router-view></router-view>
+                <router-view />
             </div>
         </div>
     </div>
