@@ -77,6 +77,8 @@
 export default {
     data: () => {
         return {
+            workspaces: [],
+
             fullName: 'Katherine Pechon',
             position: 'Senior Blockchain Developer',
         }
@@ -86,9 +88,38 @@ export default {
          * Type Ahead
          */
         initTypeAhead () {
-            console.log('HANDLEBARS', Handlebars.compile('<div><strong>#{{title}}</strong> <small>[ {{members}} ]</small></div>'));
+            /**
+             * Substring Matcher
+             */
+            const substringMatcher = () => {
+                /* Localise this. */
+                const self = this
+
+                /* Return data to caller. */
+                return function findMatches(q, cb) {
+                    // an array that will be populated with substring matches
+                    const matches = []
+
+                    // regex used to determine if a string contains the substring `q`
+                    const substrRegex = new RegExp(q, 'i')
+
+                    // iterate through the pool of strings and for any string that
+                    // contains the substring `q`, add it to the `matches` array
+                    $.each(self.workspaces, function (i, _obj) {
+                        const str = _obj.title
+
+                        if (substrRegex.test(str)) {
+                            matches.push(_obj)
+                        }
+                    })
+
+                    /* Return matches. */
+                    cb(matches)
+                }
+            }
+
             /* Initialize workspaces (using Bloodhound engine). */
-            const workspaces = new Bloodhound({
+            const bloodhound = new Bloodhound({
                 datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title'),
                 queryTokenizer: Bloodhound.tokenizers.whitespace,
                 // NOTE: We prefetch the TOP100 workspaces locally.
@@ -106,9 +137,17 @@ export default {
             }, {
                 name: 'workspaces',
                 display: 'title',
-                source: workspaces,
+                source: substringMatcher(),
+                // source: bloodhound,
                 templates: {
-                    empty: '<div class="d-flex justify-content-center tx-medium tx-danger">No results found</div>',
+                    /* No results found. */
+                    empty: [
+                        '<div class="d-flex justify-content-center tx-medium tx-danger">',
+                        'no workspaces found',
+                        '</div>'
+                    ].join('\n'),
+
+                    /* Search suggestion. */
                     suggestion: Handlebars.compile(
                         [
                             '<div class="d-flex justify-content-between">',
@@ -116,12 +155,19 @@ export default {
                             '</div>'
                         ].join('\n')
                     ),
+
                 },
             })
         },
     },
-    mounted: function () {
+    mounted: async function () {
         console.log('Sidebar is mounted!')
+
+        /* Load (local) data. */
+        const data = await fetch('./assets/data/workspaces.json')
+
+        /* Set (local) workspaces. */
+        this.workspaces = await data.json()
 
         /* Initialize type ahead. */
         this.initTypeAhead()
