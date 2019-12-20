@@ -3323,7 +3323,7 @@ input[type="button"].btn-block {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center; }
-  
+
   .btn-group-vertical > .btn,
   .ui-datepicker-buttonpane .btn-group-vertical > button,
   .sp-container .btn-group-vertical > button,
@@ -9662,7 +9662,7 @@ textarea.form-control {
   position: relative;
   display: flex;
   align-items: center;
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   color: #8392a5;
   font-size: 10px;
   font-weight: 500;

@@ -45,11 +45,11 @@
             </div><!-- aside-loggedin -->
 
             <ul class="nav nav-aside">
-                <div class="divider-text">Workspaces</div>
+                <div class="divider-text">WORKSPACES</div>
 
                 <!-- Workspace Search -->
-                <div class="search-form">
-                    <input id="search-workspace" type="search" class="form-control" placeholder="Search for a workspace">
+                <div class="search-form mb-3">
+                    <input id="search-workspace" type="search" class="form-control" placeholder="Search all workspaces">
                 </div>
 
                 <li class="nav-item"><a href="/defi360" class="nav-link"><i data-feather="globe"></i> <span>DeFi Admin <small class="ml-1">[ Management ]</small></span></a></li>
@@ -60,7 +60,7 @@
 
                 <router-view name="sidebar" />
 
-                <div class="divider-text">aBitSuite v19.12.13</div>
+                <div class="divider-text">aBitSuite v19.12.20</div>
 
                 <div class="text-center">
                     <small>
@@ -78,52 +78,46 @@ export default {
     data: () => {
         return {
             fullName: 'Katherine Pechon',
-            position: 'Senior Blockchain Dev',
+            position: 'Senior Blockchain Developer',
         }
     },
     methods: {
+        /**
+         * Type Ahead
+         */
         initTypeAhead () {
-            const substringMatcher = function(strs) {
-                return function findMatches(q, cb) {
-                    var matches, substrRegex;
+            console.log('HANDLEBARS', Handlebars.compile('<div><strong>#{{title}}</strong> <small>[ {{members}} ]</small></div>'));
+            /* Initialize workspaces (using Bloodhound engine). */
+            const workspaces = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('title'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,
+                // NOTE: We prefetch the TOP100 workspaces locally.
+                prefetch: {
+                    url: './assets/data/workspaces.json',
+                    cache: false,
+                },
+            })
 
-                    // an array that will be populated with substring matches
-                    matches = [];
-
-                    // regex used to determine if a string contains the substring `q`
-                    substrRegex = new RegExp(q, 'i');
-
-                    // iterate through the pool of strings and for any string that
-                    // contains the substring `q`, add it to the `matches` array
-                    $.each(strs, function(i, str) {
-                        if (substrRegex.test(str)) {
-                            matches.push(str);
-                        }
-                    });
-
-                    cb(matches);
-                };
-            };
-
-            var states = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California',
-                'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii',
-                'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana',
-                'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota',
-                'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire',
-                'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota',
-                'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island',
-                'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-                'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-            ];
-
+            /* Initialize type ahead. */
             $('#search-workspace').typeahead({
                 hint: true,
                 highlight: true,
                 minLength: 1
             }, {
-                name: 'states',
-                source: substringMatcher(states)
-            });
+                name: 'workspaces',
+                display: 'title',
+                source: workspaces,
+                templates: {
+                    empty: '<div class="d-flex justify-content-center tx-medium tx-danger">No results found</div>',
+                    suggestion: Handlebars.compile(
+                        [
+                            '<div class="d-flex justify-content-between">',
+                            '<strong>#{{title}}</strong> <small>[ {{members}} ]</small>',
+                            '</div>'
+                        ].join('\n')
+                    ),
+                },
+            })
         },
     },
     mounted: function () {
