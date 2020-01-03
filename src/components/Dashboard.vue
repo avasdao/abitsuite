@@ -15,8 +15,8 @@
 
                 <button class="btn btn-sm pd-x-15 btn-white btn-uppercase mg-l-5"><i data-feather="printer" class="wd-10 mg-r-5"></i> Print</button>
 
-                <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5" @click="generateReport">
-                    <i data-feather="file" class="wd-10 mg-r-5"></i> Generate Report
+                <button class="btn btn-sm pd-x-15 btn-primary btn-uppercase mg-l-5" @click="openWorkspace('customers')">
+                    <i data-feather="file" class="wd-10 mg-r-5"></i> Customers
                 </button>
             </div>
         </div>
@@ -512,8 +512,8 @@ export default {
         }
     },
     methods: {
-        generateReport: function () {
-            alert('oops! that is offline')
+        openWorkspace: function (_workspace) {
+            this.$router.push('/customers')
         },
     },
     mounted: function () {

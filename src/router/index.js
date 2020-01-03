@@ -3,11 +3,11 @@ import VueRouter from 'vue-router'
 
 /* Import SIDEBAR components. */
 import DashboardSidebar from '@/components/Sidebar/Dashboard'
-import DbManagerSidebar from '@/components/Sidebar/DbManager'
+import CustomersSidebar from '@/components/Sidebar/Customers'
 
 /* Import MAIN components. */
 import Dashboard from '@/components/Dashboard'
-import DbManager from '@/components/DbManager'
+import Customers from '@/components/Customers'
 
 /* Initialize Vue Router. */
 Vue.use(VueRouter)
@@ -23,11 +23,11 @@ const routes = [{
     //     sidebar: DashboardSidebar,
     // },
 }, {
-    path: '/db-manager',
-    component: DbManager,
+    path: '/customers',
+    component: Customers,
     // components: {
-    //     default: DbManager,
-    //     sidebar: DbManagerSidebar,
+    //     default: Customers,
+    //     sidebar: CustomersSidebar,
     // },
 }]
 

@@ -60,7 +60,7 @@
 
                 <router-view name="sidebar" />
 
-                <div class="divider-text">aBitSuite v19.12.20</div>
+                <div class="divider-text">aBitSuite v20.1.3</div>
 
                 <div class="text-center">
                     <small>

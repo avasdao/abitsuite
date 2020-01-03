@@ -11,7 +11,7 @@
 
                 <nav class="nav">
                     <a href="javascript://" class="nav-link"><i data-feather="help-circle"></i></a>
-                    <a href="javascript://" class="nav-link" @click="openWorkspace('dbManager')"><i data-feather="grid"></i></a>
+                    <a href="javascript://" class="nav-link""><i data-feather="grid"></i></a>
                     <a href="javascript://" class="nav-link"><i data-feather="align-left"></i></a>
                 </nav>
             </div>
@@ -36,9 +36,7 @@ export default {
         }
     },
     methods: {
-        openWorkspace: function (_workspace) {
-            this.$router.push('/db-manager')
-        },
+        // 
     },
     mounted: function () {
         console.info('Main application has mounted!')
