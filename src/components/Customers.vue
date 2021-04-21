@@ -20,15 +20,6 @@ export default {
     mounted: function () {
         console.log('Sidebar is mounted!')
 
-        // $('#main-table').DataTable({
-        //     'ajax': 'http://localhost:8088/dev/table-data',
-        //     language: {
-        //         searchPlaceholder: 'Search...',
-        //         sSearch: '',
-        //         lengthMenu: '_MENU_ items/page',
-        //     }
-        // })
-
         const columnDefs = [{
             data: 'id',
             title: "Id",
