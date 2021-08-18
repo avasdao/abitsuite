@@ -6,6 +6,9 @@ import router from './router'
 /* Import main application. */
 import App from './App.vue'
 
+/* Import tailwind. */
+import 'tailwindcss/tailwind.css'
+
 Vue.config.productionTip = false
 
 /* Initialize Vue.js application. */
