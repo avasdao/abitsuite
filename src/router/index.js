@@ -5,9 +5,10 @@ import VueRouter from 'vue-router'
 // import DashboardSidebar from '@/components/Sidebar/Dashboard'
 // import CustomersSidebar from '@/components/Sidebar/Customers'
 
+import Home from '@/views/Home'
+
 /* Import MAIN components. */
 import Dashboard from '@/views/Dashboard'
-// import Customers from '@/components/Customers'
 
 /* Initialize Vue Router. */
 Vue.use(VueRouter)
@@ -15,21 +16,16 @@ Vue.use(VueRouter)
 /**
  * Initialize Routes
  */
-const routes = [{
-    path: '/',
-    component: Dashboard,
-    // components: {
-    //     default: Dashboard,
-    //     sidebar: DashboardSidebar,
-    // },
-// }, {
-//     path: '/customers',
-//     component: Customers,
-//     // components: {
-//     //     default: Customers,
-//     //     sidebar: CustomersSidebar,
-//     // },
-}]
+const routes = [
+    {
+        path: '/',
+        component: Home,
+    },
+    {
+        path: '/dashboard',
+        component: Dashboard,
+    },
+]
 
 /* Export Vue Router. */
 export default new VueRouter({ routes })

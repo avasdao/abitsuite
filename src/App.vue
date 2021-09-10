@@ -1,15 +1,18 @@
 <template>
     <main>
         <router-view/>
+
+        <Footer />
     </main>
 </template>
 
 <script>
-// import SidebarPanel from '@/components/Sidebar/MainPanel.vue'
+/* Import components. */
+import Footer from '@/components/Footer.vue'
 
 export default {
     components: {
-        // SidebarPanel
+        Footer,
     },
     data: () => {
         return {
