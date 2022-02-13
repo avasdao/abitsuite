@@ -9,6 +9,8 @@ module.exports = {
             colors: {
                 'blue-gray': colors.blueGray,
                 cyan: colors.cyan,
+                grape: colors.purple,
+                orange: colors.orange,
                 rose: colors.rose,
                 sky: colors.sky,
                 teal: colors.teal,
@@ -19,7 +21,9 @@ module.exports = {
         extend: {},
     },
     plugins: [
-        require('@tailwindcss/forms'),
         require('@tailwindcss/aspect-ratio'),
+        require('@tailwindcss/forms'),
+        require('@tailwindcss/line-clamp'),
+        require('@tailwindcss/typography')
     ],
 }
