@@ -1,21 +1,15 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 
-/* Import router. */
+import App from './App.vue'
+
 import router from './router'
 
-/* Import main application. */
-import App from './App.vue'
+import store from './store'
 
 /* Import tailwind. */
 import 'tailwindcss/tailwind.css'
 
-import store from './store'
-
-Vue.config.productionTip = false
-
-/* Initialize Vue.js application. */
-new Vue({
-    router,
-    store,
-    render: h => h(App)
-}).$mount('#app')
+createApp(App)
+    .use(store)
+    .use(router)
+    .mount('#app')

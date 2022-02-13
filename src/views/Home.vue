@@ -57,10 +57,11 @@
 
                                 <a href="javascript://" class="font-medium text-gray-500 hover:text-gray-900">Company</a>
                             </div>
+
                             <div class="hidden md:absolute md:flex md:items-center md:justify-end md:inset-y-0 md:right-0">
                                 <span class="inline-flex rounded-md shadow">
-                                    <router-link to="/dashboard" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500">
-                                        Dashboard
+                                    <router-link to="/portal" class="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:text-indigo-500">
+                                        Portal Demo
                                     </router-link>
                                 </span>
                             </div>

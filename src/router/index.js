@@ -1,17 +1,9 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-
-/* Import SIDEBAR components. */
-// import DashboardSidebar from '@/components/Sidebar/Dashboard'
-// import CustomersSidebar from '@/components/Sidebar/Customers'
+import { createRouter, createWebHistory } from 'vue-router'
 
 import Home from '@/views/Home'
 
 /* Import MAIN components. */
-import Dashboard from '@/views/Dashboard'
-
-/* Initialize Vue Router. */
-Vue.use(VueRouter)
+import Portal from '@/views/Portal'
 
 /**
  * Initialize Routes
@@ -22,10 +14,17 @@ const routes = [
         component: Home,
     },
     {
-        path: '/dashboard',
-        component: Dashboard,
+        path: '/portal',
+        component: Portal,
     },
 ]
 
-/* Export Vue Router. */
-export default new VueRouter({ routes })
+const router = createRouter({
+    history: createWebHistory(process.env.BASE_URL),
+    routes,
+    scrollBehavior() {
+        return { top: 0 }
+    },
+})
+
+export default router
