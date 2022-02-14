@@ -30,11 +30,12 @@
                             <div class="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
                                 <div class="flex items-center justify-between w-full md:w-auto">
                                     <a href="javascript://">
-                                        <span class="sr-only">Workflow</span>
-                                        <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="" />
+                                        <span class="sr-only">aBitSuite</span>
+                                        <img class="h-12 w-auto sm:h-16" :src="require('../assets/logo.png')" alt="" />
                                     </a>
                                     <div class="-mr-2 flex items-center md:hidden">
                                         <button
+                                            @click="showMobileMenu = !showMobileMenu"
                                             type="button"
                                             class="bg-gray-50 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                                             aria-expanded="false"
@@ -48,6 +49,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="hidden md:flex md:space-x-10">
                                 <a href="javascript://" class="font-medium text-gray-500 hover:text-gray-900">Product</a>
 
@@ -78,14 +80,16 @@
                 From: "opacity-100 scale-100"
                 To: "opacity-0 scale-95"
             -->
-                    <div class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+                    <div v-if="showMobileMenu" class="absolute z-10 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
                         <div class="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
                             <div class="px-5 pt-4 flex items-center justify-between">
                                 <div>
-                                    <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt="" />
+                                    <img class="h-12 w-auto" :src="require('../assets/logo.png')" alt="aBitSuite" />
                                 </div>
+
                                 <div class="-mr-2">
                                     <button
+                                        @click="showMobileMenu = !showMobileMenu"
                                         type="button"
                                         class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                                     >
@@ -97,6 +101,7 @@
                                     </button>
                                 </div>
                             </div>
+
                             <div class="px-2 pt-2 pb-3 space-y-1">
                                 <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Product</a>
 
@@ -106,6 +111,7 @@
 
                                 <a href="javascript://" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50">Company</a>
                             </div>
+
                             <a href="javascript://" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100 hover:text-indigo-700">
                                 Log in
                             </a>
@@ -168,7 +174,7 @@ import { mapActions, mapGetters } from 'vuex'
 
 export default {
     data: () => ({
-        //
+        showMobileMenu: null,
     }),
     computed: {
         ...mapGetters('profile', [
@@ -182,7 +188,7 @@ export default {
 
     },
     created: function () {
-        
+        this.showMobileMenu = false
     },
     mounted: function () {
         //
