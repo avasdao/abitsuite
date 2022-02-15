@@ -17,7 +17,7 @@ Our in-person team will be developing this platform for LIVE demo on Sunday, Feb
 
 - [ ] Token Minting
 - [ ] Project Homepage
-- [ ] DAO Admin Center
+- [ ] DAO Center
 - [ ] Token Mining
 - [ ] Token Bridge (BYOB)
 - [ ] Payouts & Rewards

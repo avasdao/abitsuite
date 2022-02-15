@@ -1,14 +1,16 @@
 <template>
     <main class="bg-gray-800" aria-labelledby="footer-heading">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
+
         <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
             <div class="pb-8 xl:grid xl:grid-cols-5 xl:gap-8">
                 <div class="grid grid-cols-2 gap-8 xl:col-span-4">
                     <div class="md:grid md:grid-cols-2 md:gap-8">
                         <div>
                             <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                                Solutions
+                                For Creators
                             </h3>
+
                             <ul role="list" class="mt-4 space-y-4">
                                 <li>
                                     <a href="javascript://" class="text-base text-gray-300 hover:text-white">
@@ -35,10 +37,12 @@
                                 </li>
                             </ul>
                         </div>
+
                         <div class="mt-12 md:mt-0">
                             <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                                Support
+                                For HODLers
                             </h3>
+
                             <ul role="list" class="mt-4 space-y-4">
                                 <li>
                                     <a href="javascript://" class="text-base text-gray-300 hover:text-white">
@@ -66,11 +70,13 @@
                             </ul>
                         </div>
                     </div>
+
                     <div class="md:grid md:grid-cols-2 md:gap-8">
                         <div>
                             <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                                Company
+                                Our Company
                             </h3>
+
                             <ul role="list" class="mt-4 space-y-4">
                                 <li>
                                     <a href="javascript://" class="text-base text-gray-300 hover:text-white">
@@ -85,9 +91,9 @@
                                 </li>
 
                                 <li>
-                                    <a href="javascript://" class="text-base text-gray-300 hover:text-white">
-                                        Jobs
-                                    </a>
+                                    <router-link to="/team" class="text-base text-gray-300 hover:text-white">
+                                        Our Team
+                                    </router-link>
                                 </li>
 
                                 <li>
@@ -103,10 +109,12 @@
                                 </li>
                             </ul>
                         </div>
+
                         <div class="mt-12 md:mt-0">
                             <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
                                 Legal
                             </h3>
+
                             <ul role="list" class="mt-4 space-y-4">
                                 <li>
                                     <a href="javascript://" class="text-base text-gray-300 hover:text-white">
@@ -129,13 +137,16 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="mt-12 xl:mt-0">
                     <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
                         Language &amp; Currency
                     </h3>
+
                     <form class="mt-4 sm:max-w-xs">
                         <fieldset class="w-full">
                             <label for="language" class="sr-only">Language</label>
+
                             <div class="relative">
                                 <select
                                     id="language"
@@ -148,6 +159,7 @@
                                     <option>Japanese</option>
                                     <option>Spanish</option>
                                 </select>
+
                                 <div class="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
                                     <!-- Heroicon name: solid/chevron-down -->
                                     <svg class="h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -156,8 +168,10 @@
                                 </div>
                             </div>
                         </fieldset>
+
                         <fieldset class="mt-4 w-full">
                             <label for="currency" class="sr-only">Currency</label>
+
                             <div class="mt-1.5 relative">
                                 <select
                                     id="currency"
@@ -165,14 +179,15 @@
                                     class="appearance-none w-full bg-none bg-gray-700 border border-transparent rounded-md block py-2 pl-3 pr-10 text-base text-white focus:outline-none focus:ring-white focus:border-white sm:text-sm"
                                 >
                                     <option>ARS</option>
-                                    <option selected>AUD</option>
+                                    <option>AUD</option>
                                     <option>CAD</option>
                                     <option>CHF</option>
                                     <option>EUR</option>
                                     <option>GBP</option>
                                     <option>JPY</option>
-                                    <option>USD</option>
+                                    <option selected>USD</option>
                                 </select>
+
                                 <div class="pointer-events-none absolute inset-y-0 right-0 px-2 flex items-center">
                                     <!-- Heroicon name: solid/chevron-down -->
                                     <svg class="h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -184,6 +199,7 @@
                     </form>
                 </div>
             </div>
+
             <div class="border-t border-gray-700 pt-8 lg:flex lg:items-center lg:justify-between xl:mt-0">
                 <div>
                     <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
@@ -193,12 +209,14 @@
                         The latest news, articles, and resources, sent to your inbox weekly.
                     </p>
                 </div>
-                <form class="mt-4 sm:flex sm:max-w-md lg:mt-0">
+
+                <div class="mt-4 sm:flex sm:max-w-md lg:mt-0">
                     <label for="email-address" class="sr-only">Email address</label>
                     <input
                         type="email"
                         name="email-address"
                         id="email-address"
+                        v-model="email"
                         autocomplete="email"
                         required
                         class="appearance-none min-w-0 w-full bg-white border border-transparent rounded-md py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white focus:border-white focus:placeholder-gray-400 sm:max-w-xs"
@@ -206,14 +224,15 @@
                     />
                     <div class="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                         <button
-                            type="submit"
+                            @click="sendRequest"
                             class="w-full bg-indigo-500 border border-transparent rounded-md py-2 px-4 flex items-center justify-center text-base font-medium text-white hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-indigo-500"
                         >
-                            Subscribe
+                            Join Our #Slack channel
                         </button>
                     </div>
-                </form>
+                </div>
             </div>
+
             <div class="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
                 <div class="flex space-x-6 md:order-2">
                     <a href="javascript://" class="text-gray-400 hover:text-gray-300">
@@ -269,10 +288,82 @@
                         </svg>
                     </a>
                 </div>
+
                 <p class="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
-                    Copyright &copy; 2021 Modenero Corp. All rights reserved.
+                    Copyright &copy; {{curYear}} Modenero Corp.
+                    <span class="block sm:inline">All rights reserved.</span>
                 </p>
+
             </div>
         </div>
     </main>
 </template>
+
+<script>
+/* Initialize vuex. */
+import { mapActions, mapGetters } from 'vuex'
+
+/* Import modules. */
+import moment from 'moment'
+
+export default {
+    data: () => ({
+        email: null,
+    }),
+    computed: {
+        ...mapGetters('profile', [
+            // 'getSessions',
+        ]),
+
+        curYear() {
+            return moment().format('YYYY')
+        },
+    },
+    methods: {
+        ...mapActions('profile', [
+            // 'addSession',
+        ]),
+
+        async sendRequest() {
+            if (!this.email) {
+                return alert('Please provide your email address.')
+            }
+
+            const url = 'https://api.telr.io/v1/slack/invite'
+
+            const data = {
+                action: 'Requesting invitation to #abitsuite slack channel.',
+                fullName: 'aBitSuite Hackathon',
+                contact: this.email,
+            }
+
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+
+            console.log('RESPONSE', response)
+            if (response) {
+                this.email = ''
+
+                alert(`Your request was sent successfully!`)
+            }
+
+        },
+
+    },
+    created: function () {
+        //
+    },
+    mounted: function () {
+        //
+    },
+}
+</script>
+
+<style scoped>
+/*  */
+</style>
