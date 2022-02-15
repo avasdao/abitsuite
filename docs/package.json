@@ -1,0 +1,19 @@
+{
+  "name": "abitsuite.com",
+  "version": "0.0.1",
+  "description": "A community-based, enterprise-ready suite of blockchain products and services for Token Creators.",
+  "main": "index.js",
+  "authors": {
+    "name": "aBitSuite",
+    "email": "support@abitsuite.com"
+  },
+  "repository": "https://github.com/modenero/abitsuite.com/abitsuite.com",
+  "scripts": {
+    "dev": "vuepress dev src",
+    "build": "vuepress build src"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "vuepress": "1.5.3"
+  }
+}
