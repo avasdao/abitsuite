@@ -14,25 +14,25 @@
                             <ul role="list" class="mt-4 space-y-4">
                                 <li>
                                     <a href="javascript://" class="text-base text-gray-300 hover:text-white">
-                                        Marketing
+                                        Create a NEW Token
                                     </a>
                                 </li>
 
                                 <li>
                                     <a href="javascript://" class="text-base text-gray-300 hover:text-white">
-                                        Analytics
+                                        Build Your DAO
                                     </a>
                                 </li>
 
                                 <li>
                                     <a href="javascript://" class="text-base text-gray-300 hover:text-white">
-                                        Commerce
+                                        Grow Your Community
                                     </a>
                                 </li>
 
                                 <li>
                                     <a href="javascript://" class="text-base text-gray-300 hover:text-white">
-                                        Insights
+                                        Connect With Experts
                                     </a>
                                 </li>
                             </ul>
@@ -40,19 +40,19 @@
 
                         <div class="mt-12 md:mt-0">
                             <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                                For HODLers
+                                For Developers
                             </h3>
 
                             <ul role="list" class="mt-4 space-y-4">
                                 <li>
-                                    <a href="javascript://" class="text-base text-gray-300 hover:text-white">
-                                        Pricing
+                                    <a href="https://docs.abitsuite.com" target="_blank" class="text-base text-gray-300 hover:text-white">
+                                        Documentation
                                     </a>
                                 </li>
 
                                 <li>
                                     <a href="javascript://" class="text-base text-gray-300 hover:text-white">
-                                        Documentation
+                                        Connect To Our API
                                     </a>
                                 </li>
 
@@ -74,20 +74,40 @@
                     <div class="md:grid md:grid-cols-2 md:gap-8">
                         <div>
                             <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
+                                For Investors
+                            </h3>
+
+                            <ul role="list" class="mt-4 space-y-4">
+                                <li>
+                                    <a href="https://canvas.abitsuite.com" target="_blank" class="text-base text-gray-300 hover:text-white">
+                                        Lean Canvas
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <router-link to="/data-room" class="text-base text-gray-300 hover:text-white">
+                                        Data Room
+                                    </router-link>
+                                </li>
+
+                                <li>
+                                    <router-link to="/sponsors" class="text-base text-gray-300 hover:text-white">
+                                        Sponsors
+                                    </router-link>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-12 md:mt-0">
+                            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
                                 Our Company
                             </h3>
 
                             <ul role="list" class="mt-4 space-y-4">
                                 <li>
-                                    <a href="javascript://" class="text-base text-gray-300 hover:text-white">
+                                    <router-link to="/about" class="text-base text-gray-300 hover:text-white">
                                         About
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="javascript://" class="text-base text-gray-300 hover:text-white">
-                                        Blog
-                                    </a>
+                                    </router-link>
                                 </li>
 
                                 <li>
@@ -97,41 +117,9 @@
                                 </li>
 
                                 <li>
-                                    <a href="javascript://" class="text-base text-gray-300 hover:text-white">
-                                        Press
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="javascript://" class="text-base text-gray-300 hover:text-white">
-                                        Partners
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="mt-12 md:mt-0">
-                            <h3 class="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                                Legal
-                            </h3>
-
-                            <ul role="list" class="mt-4 space-y-4">
-                                <li>
-                                    <a href="javascript://" class="text-base text-gray-300 hover:text-white">
-                                        Claim
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="javascript://" class="text-base text-gray-300 hover:text-white">
+                                    <router-link to="/privacy" class="text-base text-gray-300 hover:text-white">
                                         Privacy
-                                    </a>
-                                </li>
-
-                                <li>
-                                    <a href="javascript://" class="text-base text-gray-300 hover:text-white">
-                                        Terms
-                                    </a>
+                                    </router-link>
                                 </li>
                             </ul>
                         </div>

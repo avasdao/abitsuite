@@ -2,14 +2,14 @@
 sidebar: auto
 ---
 
-# Config
+# Welcome Token Creators
 
-## foo
+## Minting
 
 - Type: `string`
 - Default: `/`
 
-## bar
+## Token Mining
 
 - Type: `string`
 - Default: `/`

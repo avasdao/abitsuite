@@ -1,15 +1,15 @@
 ---
 home: true
-heroImage: https://v1.vuepress.vuejs.org/hero.png
+heroImage: https://i.imgur.com/pisPhL6.png
 tagline: A community-based, enterprise-ready suite of blockchain products and services for Token Creators.
 actionText: Quick Start →
-actionLink: /guide/
+actionLink: /creators/
 features:
-- title: Feature 1 Title
+- title: For Creators
   details: Feature 1 Description
-- title: Feature 2 Title
+- title: For Partners
   details: Feature 2 Description
-- title: Feature 3 Title
+- title: For Investors
   details: Feature 3 Description
-footer: Made by aBitSuite with ❤️
+footer: Made by Modenero with ❤️
 ---
