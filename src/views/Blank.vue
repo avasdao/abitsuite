@@ -2,6 +2,7 @@
     <main>
         <h1>Blank</h1>
 
+        <Footer />
     </main>
 </template>
 
@@ -9,7 +10,13 @@
 /* Initialize vuex. */
 import { mapActions, mapGetters } from 'vuex'
 
+/* Import components. */
+import Footer from '@/components/Footer.vue'
+
 export default {
+    components: {
+        Footer,
+    },
     data: () => ({
         //
     }),
@@ -32,7 +39,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-/*  */
-</style>

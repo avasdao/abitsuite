@@ -154,6 +154,8 @@
                 </div>
             </div>
         </div>
+
+        <Footer />
     </main>
 </template>
 
@@ -162,10 +164,12 @@
 import { mapActions, mapGetters } from 'vuex'
 
 /* Import components. */
+import Footer from '@/components/Footer.vue'
 import Intro from '@/components/Intro'
 
 export default {
     components: {
+        Footer,
         Intro,
     },
     data: () => ({
@@ -190,7 +194,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-/*  */
-</style>

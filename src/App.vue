@@ -2,7 +2,7 @@
     <main>
         <router-view />
 
-        <Footer />
+        <Footer class="hidden" />
     </main>
 </template>
 

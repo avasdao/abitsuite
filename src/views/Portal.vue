@@ -1,5 +1,6 @@
 <template>
-    <main class="relative h-screen flex overflow-hidden bg-white">
+    <!-- <main class="relative h-screen flex overflow-hidden bg-white"> -->
+    <main class="relative h-screen flex bg-white">
         <!-- Off-canvas menu for mobile, show/hide based on off-canvas menu state. -->
         <div v-if="showMobileMenu" class="fixed inset-0 flex z-40 lg:hidden" role="dialog" aria-modal="true">
             <!--
@@ -280,7 +281,8 @@
         </div>
 
         <!-- Main column -->
-        <div class="flex flex-col w-0 flex-1 overflow-hidden">
+        <!-- <div class="flex flex-col w-0 flex-1 overflow-hidden"> -->
+        <div class="flex flex-col w-0 flex-1">
             <!-- Search header -->
             <div class="relative z-10 flex-shrink-0 flex h-16 bg-white border-b border-gray-200 lg:hidden">
                 <!-- Sidebar toggle, controls the 'sidebarOpen' sidebar state. -->
@@ -366,15 +368,23 @@
             </div>
 
             <router-view />
+            <Footer />
         </div>
     </main>
+
 </template>
 
 <script>
 /* Initialize vuex. */
 import { mapActions, mapGetters } from 'vuex'
 
+/* Import components. */
+import Footer from '@/components/Footer.vue'
+
 export default {
+    components: {
+        Footer,
+    },
     data: () => ({
         showMobileMenu: null,
     }),
@@ -397,7 +407,3 @@ export default {
     },
 }
 </script>
-
-<style scoped>
-/*  */
-</style>
