@@ -1,6 +1,6 @@
 {
   "name": "abitsuite",
-  "version": "22.2.14",
+  "version": "22.3.17",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "core-js": "3.20.3",
+    "jspdf": "2.5.1",
     "moment": "2.29.1",
     "numeral": "2.0.6",
     "uuid": "8.3.2",

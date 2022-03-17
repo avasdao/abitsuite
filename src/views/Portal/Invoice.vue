@@ -3,7 +3,7 @@
         <div class="max-w-2xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <h2 class="sr-only">Checkout</h2>
 
-            <form class="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
+            <section class="lg:grid lg:grid-cols-2 lg:gap-x-12 xl:gap-x-16">
                 <div>
                     <div>
                         <h2 class="text-lg font-medium text-gray-900">Contact information</h2>
@@ -300,15 +300,16 @@
 
                         <div class="border-t border-gray-200 py-6 px-4 sm:px-6">
                             <button
-                                type="submit"
+                                @click="createPDF"
                                 class="w-full bg-indigo-600 border border-transparent rounded-md shadow-sm py-3 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-50 focus:ring-indigo-500"
                             >
-                                Confirm order
+                                Generate Invoice
                             </button>
                         </div>
+
                     </div>
                 </div>
-            </form>
+            </section>
         </div>
     </main>
 </template>
@@ -316,6 +317,9 @@
 <script>
 /* Initialize vuex. */
 import { mapActions, mapGetters } from 'vuex'
+
+/* Import modules. */
+import { jsPDF } from 'jspdf'
 
 export default {
     data: () => ({
@@ -330,6 +334,37 @@ export default {
         ...mapActions('profile', [
             // 'addSession',
         ]),
+
+        createPDF() {
+            const doc = new jsPDF()
+
+            doc.text('This is the default font.', 20, 20);
+
+            doc.setFont('courier', 'normal');
+            doc.text('This is courier normal.', 20, 30);
+
+            doc.setFont('times', 'italic');
+            doc.text('This is times italic.', 20, 40);
+
+            doc.setFont('helvetica', 'bold');
+            doc.text('This is helvetica bold.', 20, 50);
+
+            doc.setFont('courier', 'bolditalic');
+            doc.text('This is courier bolditalic.', 20, 60);
+
+            doc.setFont('times', 'normal');
+            doc.text('This is centred text.', 105, 80, null, null, 'center');
+            doc.text('And a little bit more underneath it.', 105, 90, null, null, 'center');
+            doc.text('This is right aligned text', 200, 100, null, null, 'right');
+            doc.text('And some more', 200, 110, null, null, 'right');
+            doc.text('Back to left', 20, 120);
+
+            doc.text('10 degrees rotated', 20, 140, null, 10);
+            doc.text('-10 degrees rotated', 20, 160, null, -10);
+
+            // doc.save('invoice.pdf')
+            doc.output('dataurlnewwindow')
+        },
 
     },
     created: function () {
