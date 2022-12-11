@@ -1,6 +1,5 @@
 # aBitSuite
 
-<<<<<<< HEAD
 https://abitsuite.com
 
 ## Virtual Office for Token Creators
@@ -8,6 +7,3 @@ https://abitsuite.com
 ### Are you looking for our ETHDenver 2022 project page?
 
 ### https://github.com/modenero/abitsuite.com/tree/ETHDenver2022
-=======
-### https://abitsuite.com
->>>>>>> ETHDenver2022
