@@ -1,0 +1,18 @@
+{
+  "name": "abitsuite",
+  "version": "20.1.3",
+  "description": "BUIDL IT! They will come...",
+  "author": "Modenero Corp <support@modenero.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "moment": "2.24.0",
+    "numeral": "2.0.6",
+    "pouchdb": "7.1.1",
+    "slack": "11.0.2",
+    "superagent": "5.1.3"
+  }
+}
