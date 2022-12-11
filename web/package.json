@@ -1,6 +1,7 @@
 {
   "name": "abitsuite",
-  "version": "22.3.17",
+  "version": "22.12.10",
+  "license": "MIT",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -23,7 +24,7 @@
     "@tailwindcss/postcss7-compat": "2.2.7",
     "@tailwindcss/typography": "0.4.1",
     "@vue/cli-plugin-babel": "4.5.0",
-    "@vue/cli-plugin-e2e-webdriverio": "4.5.15",
+    "@vue/cli-plugin-e2e-webdriverio": "5.0.8",
     "@vue/cli-plugin-eslint": "4.5.0",
     "@vue/cli-plugin-router": "4.5.0",
     "@vue/cli-plugin-unit-jest": "4.5.0",
@@ -36,6 +37,5 @@
     "eslint-plugin-vue": "7.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "vue-template-compiler": "2.6.10"
-  },
-  "license": "MIT"
+  }
 }
